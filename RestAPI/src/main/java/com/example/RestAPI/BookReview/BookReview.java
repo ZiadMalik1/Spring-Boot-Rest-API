@@ -1,11 +1,28 @@
 package com.example.RestAPI.BookReview;
 
-public class BookReview {
+import javax.persistence.*;
 
+@Entity
+@Table
+public class BookReview {
+    @Id
+    @SequenceGenerator(
+            name = "bookreview",
+            sequenceName = "bookreview",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+
+            strategy = GenerationType.SEQUENCE,
+            generator = "bookreview"
+
+    )
     private String bookTitle;
     private String bookReview;
     private Integer bookRating;
     private Long id;
+
+
 
     public BookReview(String bookTitle, String bookReview, Integer bookRating) {
         this.bookTitle = bookTitle;
@@ -16,6 +33,10 @@ public class BookReview {
     public BookReview(String bookTitle, Integer bookRating) {
         this.bookTitle = bookTitle;
         this.bookRating = bookRating;
+    }
+
+    public BookReview() {
+
     }
 
     public String getBookTitle() {

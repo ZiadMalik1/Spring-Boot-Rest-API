@@ -1,5 +1,6 @@
 package com.example.RestAPI.BookReview;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -7,11 +8,16 @@ import java.util.List;
 @Service
 public class BookReviewService {
 
+    private final ReviewRepository repository;
+
+    @Autowired
+    public BookReviewService(ReviewRepository repository) {
+        this.repository = repository;
+    }
 
     public List<BookReview> getReviews(){
 
-        return List.of(new BookReview("Harry", "Amazing", 9),
-                new BookReview("Potter", "Hell5o", 9));
+        return repository.findAll();
 
     }
 }
