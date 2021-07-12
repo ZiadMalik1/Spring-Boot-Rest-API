@@ -1,9 +1,7 @@
 package com.example.RestAPI.BookReview;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,9 +17,27 @@ public class BookReviewController {
     }
 
     @GetMapping
-    public List<BookReview> bookReviews(){
+    public List<Review> bookReviews(){
 
         return service.getReviews();
+
+    }
+    @PostMapping
+    public void registerReview(@RequestBody Review review){
+
+        service.addNewReview(review);
+
+    }
+    @DeleteMapping(path = "{studentId}")
+    public void deleteReview(@PathVariable("studentId") Long studentId){
+    service.deleteReview(studentId);
+    }
+
+    @PutMapping(path = "{studentId")
+    public void updateReview(@PathVariable("studentId") Long studentId, @RequestParam(required = false) String bookReview,
+                             @RequestParam(required = false) Integer bookRating){
+
+        service.updateReview(studentId, bookReview, bookRating);
 
     }
 

@@ -4,40 +4,39 @@ import javax.persistence.*;
 
 @Entity
 @Table
-public class BookReview {
+public class Review {
     @Id
     @SequenceGenerator(
-            name = "bookreview",
-            sequenceName = "bookreview",
+            name = "book_sequence",
+            sequenceName = "book_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
-
             strategy = GenerationType.SEQUENCE,
-            generator = "bookreview"
-
+            generator = "book_sequence"
     )
+    private Long id;
     private String bookTitle;
     private String bookReview;
     private Integer bookRating;
-    private Long id;
 
+    public Review() {
 
+    }
 
-    public BookReview(String bookTitle, String bookReview, Integer bookRating) {
+    public Review(Long id, String bookTitle, String bookReview, Integer bookRating) {
+        this.id = id;
         this.bookTitle = bookTitle;
         this.bookReview = bookReview;
         this.bookRating = bookRating;
     }
 
-    public BookReview(String bookTitle, Integer bookRating) {
+    public Review(String bookTitle, Integer bookRating) {
+
         this.bookTitle = bookTitle;
         this.bookRating = bookRating;
     }
 
-    public BookReview() {
-
-    }
 
     public String getBookTitle() {
         return bookTitle;
