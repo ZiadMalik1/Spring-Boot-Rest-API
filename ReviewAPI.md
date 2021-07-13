@@ -52,7 +52,7 @@ Allows you to view an existing order. Requires authentication.
 
 ### Deleting a Review ###
 
-PATCH `/studentId`
+DELETE `/studentId`
 
 Allows you to Delete a review with Student ID: {`studentId`}
 
