@@ -24,8 +24,7 @@ public class Review {
 
     }
 
-    public Review(Long id, String bookTitle, String bookReview, Integer bookRating) {
-        this.id = id;
+    public Review(String bookTitle, String bookReview, Integer bookRating) {
         this.bookTitle = bookTitle;
         this.bookReview = bookReview;
         this.bookRating = bookRating;
