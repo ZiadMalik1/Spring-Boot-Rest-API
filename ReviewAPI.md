@@ -44,12 +44,6 @@ Put `/studentID?{Kay being Updated: Updated Value}` ID-Type: Long
 
 Allows you to Update a review and change only the Review and/or the Rating.
 
-### Get an order ###
-
-GET `/orders/:orderId`
-
-Allows you to view an existing order. Requires authentication.
-
 ### Deleting a Review ###
 
 DELETE `/studentId`
