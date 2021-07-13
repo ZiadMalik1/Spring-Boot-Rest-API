@@ -29,7 +29,7 @@ The request body needs to be in JSON format and include the following properties
 
 Example
 ```
-POST /
+POST '/'
 
 {
   "bookTitle": "Harry Potter and the Sorcerer's Stone",
