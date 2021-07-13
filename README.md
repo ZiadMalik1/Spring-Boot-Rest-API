@@ -40,7 +40,7 @@ The response body will contain the Status Code along with *No* Message.
 
 ### Update a Review ###
 
-Put `/studentID?{key being Updated: Updated Value}` ID-Type: Long
+Put `/studentID?{key being Updated = Updated Value}` ID-Type: Long
 
 Allows you to Update a review and change only the Review and/or the Rating.
 
