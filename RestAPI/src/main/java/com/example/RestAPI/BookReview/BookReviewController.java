@@ -33,7 +33,7 @@ public class BookReviewController {
     service.deleteReview(studentId);
     }
 
-    @PutMapping(path = "{studentId")
+    @PutMapping(path = "{studentId}")
     public void updateReview(@PathVariable("studentId") Long studentId, @RequestParam(required = false) String bookReview,
                              @RequestParam(required = false) Integer bookRating){
 

@@ -24,13 +24,13 @@ private final ReviewRepository repository;
 
     public void addNewReview(Review review) {
 
-        if (review.getBookRating() > -1 && review.getBookRating() < 11 && review.getBookRating() != null) {
+        if (review.getBookRating() > -1 && review.getBookRating() < 6 && review.getBookRating() != null) {
             repository.save(review);
         }
 
         else{
             throw new IllegalStateException("Book Rating Cannot be set to:" + review.getBookRating() +
-                    ", Ratings are Between 0-10 Inclusive");
+                    ", Ratings are Between 0-5 Inclusive");
         }
     }
 
@@ -48,11 +48,24 @@ private final ReviewRepository repository;
         Review review = repository.findById(studentId).orElseThrow(() -> new IllegalStateException(
                     "Review With ID: " + studentId + ", Does Not Exist"));
 
-        if(bookReview != null && bookReview.length() > 0 && !Objects.equals(bookReview, review.getBookReview())){
-            review.setBookReview(bookReview);
+        if(bookReview != null){
+            if(!Objects.equals(bookReview, review.getBookReview())){
+                review.setBookReview(bookReview);
+            }
+            else{
+                throw new IllegalStateException("Book Review Cannot be set to:" + bookReview +
+                        ", Review is already set to this.");
+            }
         }
-        if(bookRating != null && bookRating != review.getBookRating() && bookRating < 11 && bookRating > 0){
-            review.setBookRating(bookRating);
+
+        if(bookRating != null){
+            if(bookRating < 6 && bookRating > -1){
+                review.setBookRating(bookRating);
+            }
+            else{
+                throw new IllegalStateException("Book Rating Cannot be set to:" + bookReview +
+                        ", Ratings must be between 0-5 Inclusive.");
+            }
         }
     }
 }

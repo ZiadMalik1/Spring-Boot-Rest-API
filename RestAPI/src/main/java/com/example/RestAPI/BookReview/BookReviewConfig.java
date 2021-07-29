@@ -12,8 +12,8 @@ public class BookReviewConfig {
         @Bean
         CommandLineRunner commandLineRunner(ReviewRepository repository) {
             return args -> {
-                Review ziad = new Review("Harry Potter and the Goblet of Fire", "Amazing!", 9);
-                Review huda = new Review("Narnia", "Holy Cow!", 10);
+                Review ziad = new Review("Harry Potter and the Goblet of Fire", "Amazing!", 5);
+                Review huda = new Review("Narnia", "Holy Cow!", 3);
                 repository.saveAll(List.of(ziad, huda, ziad)
                 );
             };
