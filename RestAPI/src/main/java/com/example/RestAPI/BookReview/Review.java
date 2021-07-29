@@ -3,7 +3,7 @@ package com.example.RestAPI.BookReview;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table (name = "Review")
 public class Review {
     @Id
     @SequenceGenerator(

@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    jdbc-url: jdbc:mysql://angelinne.com:3307/angel1_CENTeamProject
+    username: angel1_admin
+    password: 9@;]*a*8XZrf
+    pool-size: 50
