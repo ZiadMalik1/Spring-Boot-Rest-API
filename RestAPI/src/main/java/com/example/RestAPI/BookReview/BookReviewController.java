@@ -1,14 +1,22 @@
 package com.example.RestAPI.BookReview;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api/v1/bookie")
+@RequestMapping(
+        path = {"/api/v1/bookie"}
+)
 public class BookReviewController {
-
     private final BookReviewService service;
 
     @Autowired
@@ -17,28 +25,27 @@ public class BookReviewController {
     }
 
     @GetMapping
-    public List<Review> bookReviews(){
-
-        return service.getReviews();
-
+    public List<Review> bookReviews() {
+        return this.service.getReviews();
     }
+
     @PostMapping
-    public void registerReview(@RequestBody Review review){
-
-        service.addNewReview(review);
-
-    }
-    @DeleteMapping(path = "{studentId}")
-    public void deleteReview(@PathVariable("studentId") Long studentId){
-    service.deleteReview(studentId);
+    public void registerReview(@RequestBody Review review) {
+        this.service.addNewReview(review);
     }
 
-    @PutMapping(path = "{studentId")
-    public void updateReview(@PathVariable("studentId") Long studentId, @RequestParam(required = false) String bookReview,
-                             @RequestParam(required = false) Integer bookRating){
-
-        service.updateReview(studentId, bookReview, bookRating);
-
+    @DeleteMapping(
+            path = {"{studentId}"}
+    )
+    public void deleteReview(@PathVariable("studentId") Long studentId) {
+        this.service.deleteReview(studentId);
     }
 
+    @PutMapping(
+            path = {"{studentId}"}
+    )
+    public void updateReview(@PathVariable("studentId") Long studentId, @RequestParam(required = false) String bookReview, @RequestParam(required = false) Integer bookRating) {
+        System.out.println(bookRating);
+        this.service.updateReview(studentId, bookReview, bookRating);
+    }
 }
