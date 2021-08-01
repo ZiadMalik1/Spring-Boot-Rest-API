@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 public class BookReviewConfig {
     public BookReviewConfig() {
     }
-
     @Bean
     CommandLineRunner commandLineRunner(ReviewRepository repository) {
         return (args) -> {

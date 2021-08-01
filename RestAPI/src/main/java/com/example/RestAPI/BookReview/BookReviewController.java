@@ -45,7 +45,6 @@ public class BookReviewController {
             path = {"{studentId}"}
     )
     public void updateReview(@PathVariable("studentId") Long studentId, @RequestParam(required = false) String bookReview, @RequestParam(required = false) Integer bookRating) {
-        System.out.println(bookRating);
         this.service.updateReview(studentId, bookReview, bookRating);
     }
 }
