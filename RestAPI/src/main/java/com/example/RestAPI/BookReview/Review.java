@@ -105,6 +105,9 @@ public class Review {
     }
 
     public void addRating(Integer Rating) {
+        if(this.averageRating == null){
+            this.averageRating = 0.0;
+        }
         this.averageRating = ((this.averageRating * this.numberOfRatings) + Rating) / ++this.numberOfRatings;
     }
 
@@ -125,20 +128,27 @@ public class Review {
     }
 
     public void calculateNewAverage(Integer bookRating){
+        if(this.averageRating == null){
+            this.averageRating = 0.0;
+        }
         Double Total = (this.averageRating * this.numberOfRatings)-(this.bookRating)+(bookRating);
-        System.out.println(Total);
         Double newAverage = (Total/this.numberOfRatings);
-        System.out.println(newAverage);
         setAverageRating(newAverage);
     }
 
     public void calculateNewAverageWithNull(Integer bookRating){
+        if(this.averageRating == null){
+            this.averageRating = 0.0;
+        }
         Double Total = (this.averageRating * this.numberOfRatings)-(this.bookRating)+(bookRating);
         Double newAverage = (Total/++this.numberOfRatings);
         setAverageRating(newAverage);
     }
 
     public void calculateNewAverageWithDelete(Integer bookRating){
+        if(this.averageRating == null){
+            this.averageRating = 0.0;
+        }
         Double Total = (this.averageRating * this.numberOfRatings)-(this.bookRating)+(bookRating);
         Double newAverage = (Total/--this.numberOfRatings);
         setAverageRating(newAverage);

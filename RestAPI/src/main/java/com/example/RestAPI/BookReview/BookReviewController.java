@@ -29,6 +29,11 @@ public class BookReviewController {
         return this.service.getReviews();
     }
 
+    @GetMapping(path = {"{bookTitle}"})
+    public String bookAverage(@PathVariable String bookTitle){
+        return "The Book Rating Average for Book: " + bookTitle + "\nAverage Book Rating: " + this.service.getAverage(bookTitle);
+    }
+
     @PostMapping
     public void registerReview(@RequestBody Review review) {
         this.service.addNewReview(review);
