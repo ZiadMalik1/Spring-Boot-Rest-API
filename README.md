@@ -50,3 +50,10 @@ DELETE `/studentId`
 
 Allows you to Delete a review with Student ID: {`studentId`}
 
+### Book Average Rating ###
+
+GET `/{bookTitle}`
+
+Returns Book Rating Average for Specified Book Title
+
+
